@@ -7,19 +7,23 @@
          
          GLSLPROGRAM
                
-         varying vec4 position_in_object_coordinates;
+         //varying vec4 position_in_object_coordinates;
  
          #ifdef VERTEX         
          
+         out vec4 position_in_object_coordinates;
+
          void main()
          {
-            position_in_object_coordinates= gl_Vertex;
+            position_in_object_coordinates= gl_Vertex;//ここには頂点の情報が入っている
             gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
          }
          
          #endif
 
          #ifdef FRAGMENT
+
+         in vec4 position_in_object_coordinates;
          
          void main()
          {
@@ -27,7 +31,7 @@
             {
                discard; // drop the fragment if y coordinate > 0
             }
-            if (gl_FrontFacing) // are we looking at a front face?
+            if (gl_FrontFacing) // are we looking at a front face?表面かどうか
             {
                gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0); // yes: green
             }
