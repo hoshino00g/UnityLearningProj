@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/ShaderSampleScene.unity
+- path: Assets/Scenes/EditorScriptShader.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
